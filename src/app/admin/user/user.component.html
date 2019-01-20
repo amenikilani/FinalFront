@@ -1,4 +1,4 @@
-<h1>Agence ROA</h1>
+<h1 class="deepshd">Agence <span class="text-primary">R</span><span class="text-danger">O</span><span class="text-success">A</span><br></h1>
 
 
 <h3 *ngIf="userIdToUpdate; else create"> 
@@ -9,28 +9,28 @@
 </ng-template>
 <div>
  <form [formGroup]="userForm" (ngSubmit)="onUserFormSubmit()">
-  <table> 
-      <tr><td>Enter id</td><td><input formControlName="id" placeholder="id" name="id" id="id">
+      <table class="table  table-borderless table-striped  table-hover table-sm " style="width: 600px;">  
+      <tr><td>Enter id</td><td><input style="width: 32rem;" class="form-control " formControlName="id" placeholder="id" name="id" id="id">
         <label *ngIf="userForm.get('id').invalid && processValidation" [ngClass] = "'error'"> id is required. </label>
     </td></tr>
 
-     <tr><td>Enter nom</td><td><input formControlName="nom" placeholder="nom" name="nom" id="nom">
+     <tr><td>Enter nom</td><td><input style="width: 32rem;" class="form-control " formControlName="nom" placeholder="nom" name="nom" id="nom">
     <label *ngIf="userForm.get('nom').invalid && processValidation" [ngClass] = "'error'"> nom is required. </label>
 </td></tr>	
-    <tr><td>Enter prenom</td><td><input formControlName="prenom"  placeholder="prenom" name="prenom" id="prenom">
+    <tr><td>Enter prenom</td><td><input style="width: 32rem;" class="form-control " formControlName="prenom"  placeholder="prenom" name="prenom" id="prenom">
 	       <label *ngIf="userForm.get('prenom').invalid && processValidation" [ngClass] = "'error'"> prenom is required. </label>
      </td></tr>
-     <tr><td>Enter cin</td><td><input formControlName="cin"   placeholder="cin" name="cin" id="cin">
+     <tr><td>Enter cin</td><td><input style="width: 32rem;" class="form-control " formControlName="cin"   placeholder="cin" name="cin" id="cin">
       <label *ngIf="userForm.get('cin').invalid && processValidation" [ngClass] = "'error'"> cin is required. </label>
   </td></tr>
-  <tr><td>Enter email</td><td><input formControlName="email"  placeholder="email" name="email" id="email">
+  <tr><td>Enter email</td><td><input style="width: 32rem;" class="form-control " formControlName="email"  placeholder="email" name="email" id="email">
     <label *ngIf="userForm.get('email').invalid && processValidation" [ngClass] = "'error'"> email is required. </label>
 </td></tr>
 
-  <tr><td>Enter role</td><td><input formControlName="role"   placeholder="role" name="role" id="role">
+  <tr><td>Enter role</td><td><input style="width: 32rem;" class="form-control " formControlName="role"   placeholder="role" name="role" id="role">
     <label *ngIf="userForm.get('role').invalid && processValidation" [ngClass] = "'error'"> role is required. </label>
 </td></tr>
-<tr><td>Enter motpass</td><td><input formControlName="motpass" placeholder="motpass" name="motpass" id="motpass">
+<tr><td>Enter motpass</td><td><input style="width: 32rem;" class="form-control " formControlName="motpass" placeholder="motpass" name="motpass" id="motpass">
   <label *ngIf="userForm.get('motpass').invalid && processValidation" [ngClass] = "'error'"> motpass is required. </label>
 </td></tr>
     <tr><td colspan="2">
@@ -64,8 +64,8 @@
 </div>
 
 <h3>User Details</h3>
-<table>
-  <tr><th>Id</th> <th>nom</th><th>prenom</th><th>cin</th><th>email</th><th>role</th><th>motpass</th><th></th><th></th></tr>
+<table class="table  table-striped  table-hover  ">
+    <tr><th>Id</th> <th>nom</th><th>prenom</th><th>cin</th><th>email</th><th>role</th><th>motpass</th><th></th><th></th></tr>
   <tr *ngFor="let user of allUsers" >
     <td>{{user.id}}</td> <td>{{user.nom}}</td> <td>{{user.prenom}}</td> <td>{{user.cin}}</td> <td>{{user.email}}</td> <td>{{user.role}}</td> <td>{{user.motpass}}</td> 
 	<td><button type="button" (click)="loadUserToEdit(user.id)">Edit</button> </td> 

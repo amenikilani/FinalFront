@@ -1,4 +1,4 @@
-<h1>Agence ROA</h1>
+<h1 class="deepshd">Agence <span class="text-primary">R</span><span class="text-danger">O</span><span class="text-success">A</span><br></h1>
 
 
 <h3 *ngIf="transportIdToUpdate; else create"> 
@@ -10,29 +10,29 @@
 <div>
  <form [formGroup]="transportForm" (ngSubmit)="onTransportFormSubmit()">
   
-      <table> 
-          <tr><td>Enter id</td><td><input formControlName="id" placeholder="id" name="id" id="id">
+    <table class="table  table-borderless table-striped  table-hover table-sm " style="width: 600px;"> 
+        <tr><td>Enter id</td><td><input style="width: 32rem;" class="form-control " formControlName="id" placeholder="id" name="id" id="id">
             <label *ngIf=" transportForm.get('id').invalid && processValidation" [ngClass] = "'error'"> id is required. </label>
         </td></tr>
-        <tr><td>Enter type</td><td><input formControlName="type" placeholder="type" name="type" id="type">
+        <tr><td>Enter type</td><td><input style="width: 32rem;" class="form-control " formControlName="type" placeholder="type" name="type" id="type">
           <label *ngIf=" transportForm.get('type').invalid && processValidation" [ngClass] = "'error'"> type is required. </label>
       </td></tr>
-         <tr><td>Enter prix</td><td><input formControlName="prix" placeholder="prix" name="prix" id="prix">
+         <tr><td>Enter prix</td><td><input style="width: 32rem;" class="form-control " formControlName="prix" placeholder="prix" name="prix" id="prix">
         <label *ngIf=" transportForm.get('prix').invalid && processValidation" [ngClass] = "'error'"> prix is required. </label>
     </td></tr>	
-        <tr><td>Enter nbre_place_dispo</td><td><input formControlName="nbre_place_dispo"  placeholder="nbre_place_dispo" name="nbre_place_dispo" id="nbre_place_dispo">
+        <tr><td>Enter nbre_place_dispo</td><td><input style="width: 32rem;" class="form-control " formControlName="nbre_place_dispo"  placeholder="nbre_place_dispo" name="nbre_place_dispo" id="nbre_place_dispo">
              <label *ngIf=" transportForm.get('date_depart_dispo').invalid && processValidation" [ngClass] = "'error'"> nbre_place_dispo is required. </label>
          </td></tr>
         
       
     
-      <tr><td>Enter heure_depart_dispo</td><td><input formControlName="heure_depart_dispo"   placeholder="heure_depart_dispo" name="heure_depart_dispo" id="heure_depart_dispo">
+      <tr><td>Enter heure_depart_dispo</td><td><input style="width: 32rem;" class="form-control " formControlName="heure_depart_dispo"   placeholder="heure_depart_dispo" name="heure_depart_dispo" id="heure_depart_dispo">
         <label *ngIf=" transportForm.get('heure_depart_dispo').invalid && processValidation" [ngClass] = "'error'"> heure_depart_dispo is required. </label>
     </td></tr>
-    <tr><td>Enter heure_fin_dispo</td><td><input formControlName="heure_fin_dispo"   placeholder="heure_fin_dispo" name="heure_fin_dispo" id="heure_fin_dispo">
+    <tr><td>Enter heure_fin_dispo</td><td><input style="width: 32rem;" class="form-control " formControlName="heure_fin_dispo"   placeholder="heure_fin_dispo" name="heure_fin_dispo" id="heure_fin_dispo">
       <label *ngIf=" transportForm.get('heure_fin_dispo').invalid && processValidation" [ngClass] = "'error'"> heure_fin_dispo is required. </label>
     </td></tr> 
-    <tr><td>Enter ville</td><td><input formControlName="ville"   placeholder="ville" name="ville" id="ville">
+    <tr><td>Enter ville</td><td><input style="width: 32rem;" class="form-control " formControlName="ville"   placeholder="ville" name="ville" id="ville">
       <label *ngIf=" transportForm.get('ville').invalid && processValidation" [ngClass] = "'error'"> ville is required. </label>
     </td></tr>
     
@@ -67,7 +67,7 @@
 </div>
 
 <h3>Transport Details</h3>
-<table>
+<table class="table  table-striped  table-hover  ">
     <tr><th> Id</th> <th>type</th><th>prix</th><th>nbre_place_dispo</th><th>date_depart_dispo</th>
       <th>prix</th><th>heure_depart_dispo</th>><th></th><th></th></tr>
     <tr *ngFor="let  transport of allTransports" >

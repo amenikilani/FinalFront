@@ -1,4 +1,4 @@
-<h1>Agence ROA</h1>
+<h1 class="deepshd">Agence <span class="text-primary">R</span><span class="text-danger">O</span><span class="text-success">A</span><br></h1>
 
 
 <h3 *ngIf="villeIdToUpdate; else create"> 
@@ -9,12 +9,12 @@
 </ng-template>
 <div>
  <form [formGroup]="villeForm" (ngSubmit)="onVilleFormSubmit()">
-  <table> 
-      <tr><td>Enter id</td><td><input formControlName="id" placeholder="id" name="id" id="id">
+      <table class="table  table-borderless table-striped  table-hover table-sm " style="width: 600px;">  
+      <tr><td>Enter id</td><td><input style="width: 32rem;" class="form-control " formControlName="id" placeholder="id" name="id" id="id">
         <label *ngIf="villeForm.get('id').invalid && processValidation" [ngClass] = "'error'"> id is required. </label>
     </td></tr>
 
-     <tr><td>Enter nom_ville</td><td><input formControlName="nom_ville" placeholder="nom_ville" name="nom_ville" id="nom_ville">
+     <tr><td>Enter nom_ville</td><td><input style="width: 32rem;" class="form-control " formControlName="nom_ville" placeholder="nom_ville" name="nom_ville" id="nom_ville">
     <label *ngIf="villeForm.get('nom_ville').invalid && processValidation" [ngClass] = "'error'"> nom_ville is required. </label>
 </td></tr>	
    
@@ -54,8 +54,8 @@
 </div>
 
 <h3>Ville Details</h3>
-<table>
-  <tr><th> Id</th> <th>nom_ville</th> <th></th><th></th></tr>
+<table class="table  table-striped  table-hover  ">
+        <tr><th> Id</th> <th>nom_ville</th> <th></th><th></th></tr>
   <tr *ngFor="let ville of allVilles" >
     <td>{{ville.id}}</td> <td>{{ville.nom_ville}}</td>  
 	<td><button type="button" (click)="loadVilleToEdit(ville.id)">Edit</button> </td> 

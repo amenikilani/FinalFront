@@ -1,4 +1,4 @@
-<h1>Agence ROA</h1>
+<h1 class="deepshd">Agence <span class="text-primary">R</span><span class="text-danger">O</span><span class="text-success">A</span><br></h1>
 
 
 <h3 *ngIf="reservationIdToUpdate; else create"> 
@@ -9,25 +9,25 @@
 </ng-template>
 <div>
  <form [formGroup]="reservationForm" (ngSubmit)="onReservationFormSubmit()">
-  <table> 
-      <tr><td>Enter id</td><td><input formControlName="id" placeholder="id" name="id" id="id">
+      <table class="table  table-borderless table-striped  table-hover table-sm " style="width: 600px;">  
+      <tr><td>Enter id</td><td><input style="width: 32rem;" class="form-control " formControlName="id" placeholder="id" name="id" id="id">
         <label *ngIf="reservationForm.get('id').invalid && processValidation" [ngClass] = "'error'"> id is required. </label>
     </td></tr>
 
-     <tr><td>Enter user</td><td><input formControlName="user" placeholder="user" name="user" id="user">
+     <tr><td>Enter user</td><td><input style="width: 32rem;" class="form-control " formControlName="user" placeholder="user" name="user" id="user">
     <label *ngIf="reservationForm.get('user').invalid && processValidation" [ngClass] = "'error'"> user is required. </label>
 </td></tr>	
-    <tr><td>Enter vol</td><td><input formControlName="vol"  placeholder="vol" name="vol" id="vol">
+    <tr><td>Enter vol</td><td><input style="width: 32rem;" class="form-control " formControlName="vol"  placeholder="vol" name="vol" id="vol">
 	       <label *ngIf="reservationForm.get('vol').invalid && processValidation" [ngClass] = "'error'"> vol is required. </label>
      </td></tr>
-     <tr><td>Enter hebergement</td><td><input formControlName="hebergement"   placeholder="hebergement" name="hebergement" id="hebergement">
+     <tr><td>Enter hebergement</td><td><input style="width: 32rem;" class="form-control " formControlName="hebergement"   placeholder="hebergement" name="hebergement" id="hebergement">
       <label *ngIf="reservationForm.get('hebergement').invalid && processValidation" [ngClass] = "'error'"> hebergement is required. </label>
   </td></tr>
-  <tr><td>Enter transport</td><td><input formControlName="transport"   placeholder="transport" name="transport" id="transport">
+  <tr><td>Enter transport</td><td><input style="width: 32rem;" class="form-control " formControlName="transport"   placeholder="transport" name="transport" id="transport">
     <label *ngIf="reservationForm.get('transport').invalid && processValidation" [ngClass] = "'error'"> transport is required. </label>
 </td></tr>
 
-  <tr><td>Enter nbre_personne</td><td><input formControlName="nbre_personne"   placeholder="nbre_personne" name="nbre_personne" id="nbre_personne">
+  <tr><td>Enter nbre_personne</td><td><input style="width: 32rem;" class="form-control " formControlName="nbre_personne"   placeholder="nbre_personne" name="nbre_personne" id="nbre_personne">
     <label *ngIf="reservationForm.get('nbre_personne').invalid && processValidation" [ngClass] = "'error'"> nbre_personne is required. </label>
 </td></tr>
     <tr><td colspan="2">
@@ -61,8 +61,8 @@
 </div>
 
 <h3>Reservation Details</h3>
-<table>
-        <tr><th> Id</th> <th>user</th><th>vol</th><th>hebergement</th><th>transport</th>
+<table class="table  table-striped  table-hover  ">
+    <tr><th> Id</th> <th>user</th><th>vol</th><th>hebergement</th><th>transport</th>
           <th>nbre_personne</th><th></th><th></th></tr>
         <tr *ngFor="let reservation of allReservations" >
           <td>{{reservation.id}}</td> <td>{{reservation.user.id}}</td> 

@@ -1,4 +1,4 @@
-<h1>Agence ROA</h1>
+<h1 class="deepshd">Agence <span class="text-primary">R</span><span class="text-danger">O</span><span class="text-success">A</span><br></h1>
 
 
 <h3 *ngIf="volIdToUpdate; else create"> 
@@ -9,40 +9,40 @@
 </ng-template>
 <div>
  <form [formGroup]="volForm" (ngSubmit)="onVolFormSubmit()">
-  <table> 
-      <tr><td>Enter id</td><td><input formControlName="id" placeholder="id" name="id" id="id">
+    <table class="table  table-borderless table-striped  table-hover table-sm " style="width: 600px;"> 
+      <tr><td>Enter id</td><td><input style="width: 32rem;" class="form-control " formControlName="id" placeholder="id" name="id" id="id">
         <label *ngIf="volForm.get('id').invalid && processValidation" [ngClass] = "'error'"> id is required. </label>
     </td></tr>
 
-     <tr><td>Enter date_depart</td><td><input formControlName="date_depart" placeholder="date_depart" name="date_depart" id="date_depart">
+     <tr><td>Enter date_depart</td><td><input style="width: 32rem;" class="form-control " formControlName="date_depart" placeholder="date_depart" name="date_depart" id="date_depart">
     <label *ngIf="volForm.get('date_depart').invalid && processValidation" [ngClass] = "'error'"> date_depart is required. </label>
 </td></tr>	
-    <tr><td>Enter date_arrive</td><td><input formControlName="date_arrive"  placeholder="date_arrive" name="date_arrive" id="date_arrive">
+    <tr><td>Enter date_arrive</td><td><input style="width: 32rem;" class="form-control " formControlName="date_arrive"  placeholder="date_arrive" name="date_arrive" id="date_arrive">
 	       <label *ngIf="volForm.get('date_arrive').invalid && processValidation" [ngClass] = "'error'"> date_arrive is required. </label>
      </td></tr>
-     <tr><td>Enter heure_depart</td><td><input formControlName="heure_depart"   placeholder="heure_depart" name="heure_depart" id="heure_depart">
+     <tr><td>Enter heure_depart</td><td><input style="width: 32rem;" class="form-control " formControlName="heure_depart"   placeholder="heure_depart" name="heure_depart" id="heure_depart">
       <label *ngIf="volForm.get('heure_depart').invalid && processValidation" [ngClass] = "'error'"> heure_depart is required. </label>
   </td></tr>
-  <tr><td>Enter heure_arrive</td><td><input formControlName="heure_arrive"   placeholder="heure_arrive" name="heure_arrive" id="heure_arrive">
+  <tr><td>Enter heure_arrive</td><td><input style="width: 32rem;" class="form-control " formControlName="heure_arrive"   placeholder="heure_arrive" name="heure_arrive" id="heure_arrive">
     <label *ngIf="volForm.get('heure_arrive').invalid && processValidation" [ngClass] = "'error'"> arrive is required. </label>
 </td></tr>
 
-  <tr><td>Enter prix</td><td><input formControlName="prix"   placeholder="prix" name="prix" id="prix">
+  <tr><td>Enter prix</td><td><input style="width: 32rem;" class="form-control " formControlName="prix"   placeholder="prix" name="prix" id="prix">
     <label *ngIf="volForm.get('prix').invalid && processValidation" [ngClass] = "'error'"> prixy is required. </label>
 </td></tr>
-<tr><td>Enter place_dispo</td><td><input formControlName="place_dispo" placeholder="place_dispo" name="place_dispo" id="place_dispo">
+<tr><td>Enter place_dispo</td><td><input style="width: 32rem;" class="form-control " formControlName="place_dispo" placeholder="place_dispo" name="place_dispo" id="place_dispo">
   <label *ngIf="volForm.get('place_dispo').invalid && processValidation" [ngClass] = "'error'"> place_dispo is required. </label>
 </td></tr>
-<tr><td>Enter ville_depart</td><td><input formControlName="ville_depart" placeholder="ville_depart" name="ville_depart" id="ville_depart">
+<tr><td>Enter ville_depart</td><td><input style="width: 32rem;" class="form-control " formControlName="ville_depart" placeholder="ville_depart" name="ville_depart" id="ville_depart">
   <label *ngIf="volForm.get('ville_depart').invalid && processValidation" [ngClass] = "'error'"> ville_depart is required. </label>
 </td></tr>
-<tr><td>Enter ville_arrive</td><td><input formControlName="ville_arrive" placeholder="ville_arrive" name="ville_arrive" id="ville_arrive">
+<tr><td>Enter ville_arrive</td><td><input style="width: 32rem;" class="form-control " formControlName="ville_arrive" placeholder="ville_arrive" name="ville_arrive" id="ville_arrive">
   <label *ngIf="volForm.get('ville_arrive').invalid && processValidation" [ngClass] = "'error'"> ville_arrive is required. </label>
 </td></tr>
     <tr><td colspan="2">
 	    <button *ngIf="!volIdToUpdate">CREATE</button>  
 		<button *ngIf="volIdToUpdate">UPDATE</button>  
-	    <button (click)="backToCreateVol()" *ngIf="volIdToUpdate">Go Back</button>  
+	    <button (click)="backToCreateVol()" *ngIf="volIdToUpdate" class="btn btn-primary ">Go Back</button>  
 	</td></tr>
   </table>
  </form> 
@@ -70,7 +70,7 @@
 </div>
 
 <h3>Vol Details</h3>
-<table>
+<table class="table  table-striped  table-hover  ">
   <tr><th> Id</th> <th>date_depart</th><th>date_arrive</th><th>heure_depart</th><th>heure_arrive</th><th>prix</th><th>place_dispo</th><th>ville_depart</th><th>ville_arrive</th><th></th><th></th></tr>
   <tr *ngFor="let vol of allVols" >
     <td>{{vol.id}}</td> <td>{{vol.date_depart}}</td> <td>{{vol.date_arrive}}</td> <td>{{vol.heure_depart}}</td> <td>{{vol.heure_arrive}}</td> <td>{{vol.prix}}</td> <td>{{vol.place_dispo}}</td> <td>{{vol.ville_depart}}</td> <td>{{vol.ville_arrive}}</td>
