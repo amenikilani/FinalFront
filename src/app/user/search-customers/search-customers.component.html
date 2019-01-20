@@ -1,0 +1,26 @@
+<h3>Find By prix</h3>
+<div style="width: 300px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="prix" [(ngModel)]="prix" id="prix" name="prix">
+    </div>
+    <div class="btn-group">
+      <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+  </form>
+</div>
+
+ <ul> 
+   <li *ngFor="let vol of hack(vols)">
+    <h4> id: {{vol.id}}</h4>
+    <h4>date_depart: {{vol.date_depart}}</h4>
+    <h4>date_arrive: {{vol.date_arrive}}</h4>
+    <h4>heure_depart: {{vol.heure_depart}}</h4>
+    <h4>heure_arrive : {{vol.heure_arrive }}</h4>
+    <h4>prix : {{vol.prix}}</h4>
+    <h4>place_dispo: {{vol.place_dispo}}</h4>
+    <h4>ville_depart : {{vol.ville_depart}}</h4>
+    <h4>ville_arrive : {{vol.ville_arrive}}</h4>
+
+  </li>
+</ul>

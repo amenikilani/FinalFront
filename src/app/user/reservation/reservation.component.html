@@ -1,0 +1,77 @@
+<h1>Agence ROA</h1>
+
+
+<h3 *ngIf="reservationIdToUpdate; else create"> 
+   Update reservation for Id: {{reservationIdToUpdate}}
+</h3>
+<ng-template #create>
+   <h3> Create New Reservation </h3>
+</ng-template>
+<div>
+ <form [formGroup]="reservationForm" (ngSubmit)="onReservationFormSubmit()">
+  <table> 
+      <tr><td>Enter id</td><td><input formControlName="id" placeholder="id" name="id" id="id">
+        <label *ngIf="reservationForm.get('id').invalid && processValidation" [ngClass] = "'error'"> id is required. </label>
+    </td></tr>
+
+     <tr><td>Enter user</td><td><input formControlName="user" placeholder="user" name="user" id="user">
+    <label *ngIf="reservationForm.get('user').invalid && processValidation" [ngClass] = "'error'"> user is required. </label>
+</td></tr>	
+    <tr><td>Enter vol</td><td><input formControlName="vol"  placeholder="vol" name="vol" id="vol">
+	       <label *ngIf="reservationForm.get('vol').invalid && processValidation" [ngClass] = "'error'"> vol is required. </label>
+     </td></tr>
+     <tr><td>Enter hebergement</td><td><input formControlName="hebergement"   placeholder="hebergement" name="hebergement" id="hebergement">
+      <label *ngIf="reservationForm.get('hebergement').invalid && processValidation" [ngClass] = "'error'"> hebergement is required. </label>
+  </td></tr>
+  <tr><td>Enter transport</td><td><input formControlName="transport"   placeholder="transport" name="transport" id="transport">
+    <label *ngIf="reservationForm.get('transport').invalid && processValidation" [ngClass] = "'error'"> transport is required. </label>
+</td></tr>
+
+  <tr><td>Enter nbre_personne</td><td><input formControlName="nbre_personne"   placeholder="nbre_personne" name="nbre_personne" id="nbre_personne">
+    <label *ngIf="reservationForm.get('nbre_personne').invalid && processValidation" [ngClass] = "'error'"> nbre_personne is required. </label>
+</td></tr>
+    <tr><td colspan="2">
+	    <button *ngIf="!reservationIdToUpdate">CREATE</button>  
+		<button *ngIf="reservationIdToUpdate">UPDATE</button>  
+	    <button (click)="backToCreateReservation()" *ngIf="reservationIdToUpdate">Go Back</button>  
+	</td></tr>
+  </table>
+ </form> 
+ <br/>
+ <div *ngIf="statusCode; else processing">
+   <div *ngIf="statusCode === 201" [ngClass] = "'success'">
+    reservation added successfully.
+   </div>   
+   <div *ngIf="statusCode === 409" [ngClass] = "'success'">
+    reservation already exists.
+   </div>   	
+   <div *ngIf="statusCode === 200" [ngClass] = "'success'">
+    reservation updated successfully.
+   </div>   	      
+   <div *ngIf="statusCode === 204" [ngClass] = "'success'">
+    reservation deleted successfully.
+   </div>   	   
+   <div *ngIf="statusCode === 500" [ngClass] = "'error'">
+        Internal Server Error.
+   </div>	
+ </div>
+ <ng-template #processing>
+	<img *ngIf="requestProcessing" src="assets/images/loading.gif">
+ </ng-template>
+</div>
+
+<h3>Reservation Details</h3>
+<table>
+        <tr><th> Id</th> <th>user</th><th>vol</th><th>hebergement</th><th>transport</th>
+          <th>nbre_personne</th><th></th><th></th></tr>
+        <tr *ngFor="let reservation of allReservations" >
+          <td>{{reservation.id}}</td> <td>{{reservation.user.id}}</td> 
+           <td>{{reservation.vol.id}}</td> <td>{{reservation.hebergement.id}}</td> <td>{{reservation.transport.id}}</td>
+            <td>{{reservation.nbre_personne}}</td>
+          <td><button type="button" (click)="loadReservationToEdit(reservation.id)">Edit</button> </td>
+          <td><button type="button" (click)="deleteReservation(reservation.id)">Delete</button></td>
+        </tr>
+      </table>
+
+
+

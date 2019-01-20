@@ -1,0 +1,77 @@
+<h1>Agence ROA</h1>
+
+
+<h3 *ngIf="userIdToUpdate; else create"> 
+   Update user for Id: {{userIdToUpdate}}
+</h3>
+<ng-template #create>
+   <h3> Create New user</h3>
+</ng-template>
+<div>
+ <form [formGroup]="userForm" (ngSubmit)="onUserFormSubmit()">
+  <table> 
+      <tr><td>Enter id</td><td><input formControlName="id" placeholder="id" name="id" id="id">
+        <label *ngIf="userForm.get('id').invalid && processValidation" [ngClass] = "'error'"> id is required. </label>
+    </td></tr>
+
+     <tr><td>Enter nom</td><td><input formControlName="nom" placeholder="nom" name="nom" id="nom">
+    <label *ngIf="userForm.get('nom').invalid && processValidation" [ngClass] = "'error'"> nom is required. </label>
+</td></tr>	
+    <tr><td>Enter prenom</td><td><input formControlName="prenom"  placeholder="prenom" name="prenom" id="prenom">
+	       <label *ngIf="userForm.get('prenom').invalid && processValidation" [ngClass] = "'error'"> prenom is required. </label>
+     </td></tr>
+     <tr><td>Enter cin</td><td><input formControlName="cin"   placeholder="cin" name="cin" id="cin">
+      <label *ngIf="userForm.get('cin').invalid && processValidation" [ngClass] = "'error'"> cin is required. </label>
+  </td></tr>
+  <tr><td>Enter email</td><td><input formControlName="email"  placeholder="email" name="email" id="email">
+    <label *ngIf="userForm.get('email').invalid && processValidation" [ngClass] = "'error'"> email is required. </label>
+</td></tr>
+
+  <tr><td>Enter role</td><td><input formControlName="role"   placeholder="role" name="role" id="role">
+    <label *ngIf="userForm.get('role').invalid && processValidation" [ngClass] = "'error'"> role is required. </label>
+</td></tr>
+<tr><td>Enter motpass</td><td><input formControlName="motpass" placeholder="motpass" name="motpass" id="motpass">
+  <label *ngIf="userForm.get('motpass').invalid && processValidation" [ngClass] = "'error'"> motpass is required. </label>
+</td></tr>
+    <tr><td colspan="2">
+	    <button *ngIf="!userIdToUpdate">CREATE</button>  
+		<button *ngIf="userIdToUpdate">UPDATE</button>  
+	    <button (click)="backToCreateUser()" *ngIf="userIdToUpdate">Go Back</button>  
+	</td></tr>
+  </table>
+ </form> 
+ <br/>
+ <div *ngIf="statusCode; else processing">
+   <div *ngIf="statusCode === 201" [ngClass] = "'success'">
+	    user added successfully.
+   </div>   
+   <div *ngIf="statusCode === 409" [ngClass] = "'success'">
+      user already exists.
+   </div>   	
+   <div *ngIf="statusCode === 200" [ngClass] = "'success'">
+      user updated successfully.
+   </div>   	      
+   <div *ngIf="statusCode === 204" [ngClass] = "'success'">
+      user deleted successfully.
+   </div>   	   
+   <div *ngIf="statusCode === 500" [ngClass] = "'error'">
+        Internal Server Error.
+   </div>	
+ </div>
+ <ng-template #processing>
+	<img *ngIf="requestProcessing" src="assets/images/loading.gif">
+ </ng-template>
+</div>
+
+<h3>User Details</h3>
+<table>
+  <tr><th>Id</th> <th>nom</th><th>prenom</th><th>cin</th><th>email</th><th>role</th><th>motpass</th><th></th><th></th></tr>
+  <tr *ngFor="let user of allUsers" >
+    <td>{{user.id}}</td> <td>{{user.nom}}</td> <td>{{user.prenom}}</td> <td>{{user.cin}}</td> <td>{{user.email}}</td> <td>{{user.role}}</td> <td>{{user.motpass}}</td> 
+	<td><button type="button" (click)="loadUserToEdit(user.id)">Edit</button> </td> 
+	<td><button type="button" (click)="deleteUser(user.id)">Delete</button></td>
+  </tr>
+</table>
+
+
+
