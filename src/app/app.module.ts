@@ -16,6 +16,8 @@ import { ReservationComponent } from './user/reservation/reservation.component';
 import { ReservationService } from './reservation.service';
 import { UserComponent } from './admin/user/user.component';
 import { UserService } from './user.service';
+import { AppBoostrapModule } from './app-boostrap/app-boostrap.module';
+
 const appRoutes: Routes = [
   { path: 'vols', component: VolComponent },
   { path: 'hebergements', component: HebergementComponent },
@@ -38,12 +40,13 @@ const appRoutes: Routes = [
     UserComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,AppBoostrapModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
+
   exports: [
     FormsModule,
     ReactiveFormsModule
