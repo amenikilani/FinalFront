@@ -21,7 +21,7 @@
                   Dropdown <span class="caret"></span></a>
                 <ul *dropdownMenu class="dropdown-menu"> <!-- {3} -->
                     <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
+                    <li><a href="#/vols">Another action</a></li>
                     <li><a href="#">Something else here</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="hebergements">Separated link</a></li>
@@ -32,6 +32,28 @@
         </ul>
     </div>
 </nav>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a routerLink="villes">villes</a></li>
+          <li class="active"><a routerLink="hebergements">Hebergements</a></li>
+          <li><a routerLink="vols">Vols</a></li>
+          <li><a routerLink="reservations">Reservations</a></li>
+
+          <li class="active"><a routerLink="transports">Transports</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
 
 <app-vol></app-vol>
 <app-ville></app-ville>
