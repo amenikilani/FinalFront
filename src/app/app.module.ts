@@ -17,14 +17,18 @@ import { ReservationService } from './reservation.service';
 import { UserComponent } from './admin/user/user.component';
 import { UserService } from './user.service';
 import { AppBoostrapModule } from './app-boostrap/app-boostrap.module';
+import { ClientComponent } from '/home/onsbouneb/Music/FinalFront/src/app/user/client/client.component';
+import { AdminComponent } from './admin/admin.component';
 
 const appRoutes: Routes = [
-  { path: 'vols', component: VolComponent },
-  { path: 'hebergements', component: HebergementComponent },
-  { path: 'villes', component: VilleComponent },
-  { path: 'transports', component: TransportComponent },
-  { path: 'reservations', component: ReservationComponent},
+  { path: 'admin/vols', component: VolComponent },
+  { path: 'admin/hebergements', component: HebergementComponent },
+  { path: 'admin/villes', component: VilleComponent },
+  { path: 'admin/transports', component: TransportComponent },
+  { path: 'client/reservations', component: ReservationComponent},
   { path: 'users', component: UserComponent},
+  { path: 'client', component: ClientComponent},
+  { path: 'admin', component: AdminComponent},
 
 
 ];
@@ -37,7 +41,9 @@ const appRoutes: Routes = [
     VilleComponent,
     TransportComponent,
     ReservationComponent,
-    UserComponent
+    UserComponent,
+    ClientComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,AppBoostrapModule,

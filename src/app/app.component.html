@@ -1,48 +1,10 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand">
-              <img src="assets/img/ngx-bootstrap.svg" class="logo">
-            </a>
-            <span class="navbar-brand">Angular + Bootstrap</span>
-        </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="#">
-              Link <span class="sr-only">(current)</span>
-            </a></li>
-            <li><a routerLink="/vols" routerLinkActive="active">Vol</a></li>
-            <li><a routerLink="/hebergements" routerLinkActive="active">hebergements</a></li>
-
-            <li><a routerLink="/hebergements">Vol</a></li>
-
-            <li><a href="#">Ville</a></li>
-            <li class="dropdown" dropdown> <!-- {1} -->
-                <a dropdownToggle role="button"> <!-- {2} -->
-                  Dropdown <span class="caret"></span></a>
-                <ul *dropdownMenu class="dropdown-menu"> <!-- {3} -->
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#/vols">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="hebergements">Separated link</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">One more separated link</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
       <div class="navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a routerLink="villes">villes</a></li>
-          <li class="active"><a routerLink="hebergements">Hebergements</a></li>
-          <li><a routerLink="vols">Vols</a></li>
-          <li><a routerLink="reservations">Reservations</a></li>
-
-          <li class="active"><a routerLink="transports">Transports</a></li>
+          <li><a routerLink="client">Clients</a></li>
+          <li class="active"><a routerLink="admin">Admin</a></li>
+          
         </ul>
       </div>
     </div>
@@ -55,9 +17,3 @@
     </div>
   </div>
 
-<app-vol></app-vol>
-<app-ville></app-ville>
-<app-hebergement></app-hebergement>
-<app-transport></app-transport>
-<app-user></app-user>
-<app-reservation></app-reservation>
