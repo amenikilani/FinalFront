@@ -65,8 +65,7 @@
     <tr><th> Id</th> <th>user</th><th>vol</th><th>hebergement</th><th>transport</th>
           <th>nbre_personne</th><th></th><th></th></tr>
         <tr *ngFor="let reservation of allReservations" >
-          <td>{{reservation.id}}</td> <td>{{reservation.user.id}}</td> 
-           <td>{{reservation.vol.id}}</td> <td>{{reservation.hebergement.id}}</td> <td>{{reservation.transport.id}}</td>
+          <td>{{reservation.id}}</td> <td>{{reservation.user.nom}}</td><td>{{reservation.vol.id}}</td><td>{{reservation.hebergement.designation}}</td> <td>{{reservation.transport.type}}</td>
             <td>{{reservation.nbre_personne}}</td>
           <td><button type="button" (click)="loadReservationToEdit(reservation.id)">Edit</button> </td>
           <td><button type="button" (click)="deleteReservation(reservation.id)">Delete</button></td>
