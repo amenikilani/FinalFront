@@ -30,7 +30,7 @@ const appRoutes: Routes = [
   { path: 'users', component: UserComponent},
   { path: 'client', component: ClientComponent},
   { path: 'admin', component: AdminComponent},
-  { path: 'map', component: MapComponent},
+  { path: 'client/map', component: MapComponent},
 
 
 ];
